@@ -1,24 +1,23 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-display: flex;
+  display: flex;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  background-color: #FFFBF6;
+  background-color: #fffbf6;
   padding-right: 5rem;
   padding-left: 5rem;
   border: 2px solid;
   border-radius: 5px;
-  border-color: #D3D3D3;
+  border-color: #d3d3d3;
   border-left-width: 8px;
-  border-left-color: ${props => props.theme.colors.primary};;
+  border-left-color: ${props => props.theme.colors.primary};
   margin-bottom: 5rem;
   align-items: center;
 
   img {
     margin-right: 5rem;
     border-radius: 50%;
-
   }
 `;
 
@@ -28,9 +27,9 @@ export const InnerWrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 1.8rem;
-    color: ${props => props.theme.text.dark};
-    line-height: 1.5;
+  font-size: 1.8rem;
+  color: ${props => props.theme.text.dark};
+  line-height: 1.5;
 `;
 
 export const SubTitleWrapper = styled.div`
@@ -38,7 +37,7 @@ export const SubTitleWrapper = styled.div`
 `;
 
 export const SubTitle = styled.h3`
-    color: ${props => props.theme.text.primary};
+  color: ${props => props.theme.text.primary};
 `;
 
 export const Company = styled.h3`
@@ -59,7 +58,7 @@ export const JobContentWrapper = styled.div`
 `;
 
 export const DetailsContainer = styled.div`
-display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
