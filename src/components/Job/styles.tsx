@@ -19,6 +19,16 @@ export const Container = styled.div`
     margin-right: 5rem;
     border-radius: 50%;
   }
+
+  :hover,
+  :focus {
+    border-left-color: ${props => props.theme.colors.featured};
+  }
+
+  &:hover + div,
+  &:focus + div {
+    border-left-color: ${props => props.theme.colors.featured};
+  }
 `;
 
 export const InnerWrapper = styled.div`
@@ -30,6 +40,12 @@ export const Title = styled.h1`
   font-size: 1.8rem;
   color: ${props => props.theme.text.dark};
   line-height: 1.5;
+  cursor: pointer;
+
+  :hover,
+  :focus {
+    text-decoration: underline;
+  }
 `;
 
 export const SubTitleWrapper = styled.div`
@@ -51,6 +67,9 @@ export const Commitment = styled.div`
   align-items: center;
   svg {
     margin-right: 1rem;
+  }
+  button {
+    margin-top: 1rem;
   }
 `;
 export const JobContentWrapper = styled.div`

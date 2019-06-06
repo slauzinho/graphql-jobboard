@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
     /* -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale; */
     height:100%;
+    background-color: #F2F2F2;
   }
 
   h3 {

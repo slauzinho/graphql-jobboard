@@ -21,6 +21,7 @@ const Home: React.FC<RouteComponentProps> = () => {
 
     return setTags([...list]);
   };
+
   return (
     <Query<FETCH_JOB_QUERY> query={fetchJobs}>
       {({ loading, error, data }) => {
@@ -28,7 +29,7 @@ const Home: React.FC<RouteComponentProps> = () => {
           return <div>loading</div>;
         } else {
           return (
-            <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <div style={{ maxWidth: '1170px', margin: '0 auto' }}>
               Home
               <TagSearch filters={tags} setFieldValue={setFieldValue} />
               <TagCtx.Provider value={tags}>
