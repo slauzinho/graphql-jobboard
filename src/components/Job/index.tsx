@@ -17,6 +17,7 @@ import Techs from 'Techs';
 import random from 'static/random.svg';
 import JobDetails from 'components/JobDetails';
 import { Button } from 'styles/components';
+import { useTransition, animated } from 'react-spring'
 
 interface JobProps {
   job: FETCH_JOB_QUERY_jobs;
@@ -25,6 +26,13 @@ interface JobProps {
 
 const Job: React.FC<JobProps> = ({ job, setFieldValue }) => {
   const [isVisible, setVisible] = useState(false);
+  const config = { tension: 125, friction: 20, precision: 0.1 };
+  const transitions = useTransition(isVisible, null, {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: { ...config, duration: 200 },
+    })
   return (
     <div>
       <Container>
@@ -38,6 +46,7 @@ const Job: React.FC<JobProps> = ({ job, setFieldValue }) => {
           }
           width="100px"
           height="100px"
+          alt={job.title}
         />
         <InnerWrapper>
           <JobContentWrapper>
@@ -138,7 +147,8 @@ const Job: React.FC<JobProps> = ({ job, setFieldValue }) => {
           </DetailsContainer>
         </InnerWrapper>
       </Container>
-      {isVisible && <JobDetails job={job} />}
+      {transitions.map(({ item, key, props }) =>
+      item && <animated.div key={key} style={props}><JobDetails job={job} /></animated.div>)}
     </div>
   );
 };
