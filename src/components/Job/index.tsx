@@ -12,7 +12,7 @@ import {
   DetailsContainer,
 } from 'components/Job/styles';
 import { distanceInWords } from 'date-fns';
-import Techs from 'Techs';
+import Techs from 'components/Techs';
 
 import random from 'static/random.svg';
 import JobDetails from 'components/JobDetails';

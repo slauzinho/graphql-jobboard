@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 import { FETCH_JOB_QUERY_jobs_tags } from 'schemaTypes';
-import { Container, Pill } from 'Techs/styles';
+import { Container, Pill } from 'components/Techs/styles';
 
 interface IProps {
   filters: FETCH_JOB_QUERY_jobs_tags[] | null;
