@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react';
 import { RouteComponentProps } from '@reach/router';
-import { useTransition, animated } from 'react-spring'
+import { useTransition, animated } from 'react-spring';
 import fetchJobs from 'services/fetchJobs';
 import { Query } from 'react-apollo';
 import { FETCH_JOB_QUERY, FETCH_JOB_QUERY_jobs_tags } from 'schemaTypes';
@@ -12,12 +12,12 @@ export const TagCtx = createContext<FETCH_JOB_QUERY_jobs_tags[]>([]);
 const Home: React.FC<RouteComponentProps> = () => {
   const [tags, setTags] = useState<FETCH_JOB_QUERY_jobs_tags[]>([]);
   const config = { tension: 125, friction: 20, precision: 0.1 };
-  const transitions = useTransition(tags.length>0, null, {
+  const transitions = useTransition(tags.length > 0, null, {
     from: { opacity: 0, transform: 'translate3d(0%,50%,0)' },
     enter: { opacity: 1, transform: 'translate3d(0%,0,0)' },
     leave: { opacity: 0, transform: 'translate3d(0,-50%,0)' },
     config: { ...config, duration: 200 },
-    })
+  });
   const setFieldValue = (id: string, value: FETCH_JOB_QUERY_jobs_tags) => {
     const list = tags.filter(tag => tag.id !== id);
     if (tags.length === 0) {
@@ -39,9 +39,14 @@ const Home: React.FC<RouteComponentProps> = () => {
           return (
             <div style={{ maxWidth: '1170px', margin: '0 auto' }}>
               Home
-              {transitions.map(({ item, key, props }) =>
-      item && <animated.div key={key} style={props}><TagSearch filters={tags} setFieldValue={setFieldValue} /></animated.div>)}
-              
+              {transitions.map(
+                ({ item, key, props }) =>
+                  item && (
+                    <animated.div key={key} style={props}>
+                      <TagSearch filters={tags} setFieldValue={setFieldValue} />
+                    </animated.div>
+                  )
+              )}
               <TagCtx.Provider value={tags}>
                 {data &&
                   data.jobs.map(job => {
